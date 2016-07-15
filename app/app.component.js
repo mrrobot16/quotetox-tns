@@ -8,7 +8,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            template: "\n    <StackLayout>\n        <Label [text]=\"welcome_msg\" class=\"welcome_msg\"></Label>\n        <Button text=\"TAP\"></Button>\n        <Label [text]=\"quote_of_day\" class=\"quote\" textWrap=\"true\"></Label>\n    </StackLayout>\n    ",
+            template: "\n    <StackLayout>\n        <Label [text]=\"welcome_msg\" class=\"welcome_msg\" textWrap=\"true\"></Label>\n\n        <Label [text]=\"quote_of_day\" class=\"quote\" textWrap=\"true\"></Label>\n        <!--  <Button text=\"TAP\"></Button> -->\n    </StackLayout>\n    ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

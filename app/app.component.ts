@@ -4,9 +4,10 @@ import {Component} from "@angular/core";
     selector: "my-app",
     template: `
     <StackLayout>
-        <Label [text]="welcome_msg" class="welcome_msg"></Label>
-        <Button text="TAP"></Button>
+        <Label [text]="welcome_msg" class="welcome_msg" textWrap="true"></Label>
+
         <Label [text]="quote_of_day" class="quote" textWrap="true"></Label>
+        <!--  <Button text="TAP"></Button> -->
     </StackLayout>
     `,
 })
