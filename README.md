@@ -25,6 +25,6 @@ Step 5
 
 tns emulate ios
 
-To Watch app use:
+To watch changes in app use:
 
 tns livesync ios --watch
