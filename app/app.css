@@ -3,11 +3,11 @@
 }
 
 button {
-    font-size: 20;
+    font-size: 10;
 }
 
 .welcome_msg {
-    font-size: 30;
+    font-size: 10;
     margin: 20;
 }
 
@@ -16,4 +16,11 @@ button {
     color: #284848;
     text-align: center;
     margin: 0 20;
+}
+
+.quote_of_day {
+  font-size: 30;
+  color: orange;
+  text-align: center;
+  margin: 0 20;
 }
