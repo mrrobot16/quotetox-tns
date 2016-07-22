@@ -24,7 +24,11 @@ export class DetoxComponent implements OnInit {
       // setTimeout(this.testfx(), 5000);
     }
 
-    testfx(){
+    post_detox(){
+
+    }
+
+    date_numbers(){
       var last_time:any = this.last_time.toString().split(' ');
       console.log('this.last_time: ', last_time);
       last_time.forEach((date, index)=>{
