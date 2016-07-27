@@ -8,5 +8,5 @@ import {DetoxComponent} from './components/detox/detox.component';
 export const AppRoutes: RouterConfig = [
 { path: "", component: DetoxComponent }
 ]
-console.log("Hello Quotox");
+
 nativeScriptBootstrap(AppComponent, [[nsProvideRouter(AppRoutes,{})]], { startPageActionBarHidden: false });
