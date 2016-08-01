@@ -11,20 +11,6 @@ button {
     margin: 20;
 }
 
-.quote {
-    font-size: 20;
-    color: #284848;
-    text-align: center;
-    margin: 0 20;
-}
-
-.quote_of_day {
-  font-size: 20;
-  color: black;
-  text-align: center;
-  margin: 0 20 20 20;
-}
-
 .detox-label {
   font-size: 20;
   margin: 20;
