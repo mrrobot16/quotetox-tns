@@ -12,6 +12,7 @@ import {NS_ROUTER_DIRECTIVES} from "nativescript-angular/router";
 })
 
 export class AppComponent {
+  // public quote_of_day: string = "A Lion doesn't concern himself with the opinion of  sheep."
   constructor(){
 
   }
