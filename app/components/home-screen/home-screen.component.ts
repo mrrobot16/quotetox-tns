@@ -1,6 +1,10 @@
 // Angular 2 objects
 import {Component, OnInit} from "@angular/core";
 import {Router} from '@angular/router';
+
+// Components
+import {DetoxComponent} from '../detox/detox.component';
+
 @Component({
   selector:'home-screen-component',
   template:`
@@ -15,7 +19,8 @@ import {Router} from '@angular/router';
   </StackLayout>
 
   `,
-  styleUrls:["./components/home-screen/home-screen.css"]
+  styleUrls:["./components/home-screen/home-screen.css"],
+  directives:[DetoxComponent]
 })
 export class HomeScreenComponent implements OnInit {
     public quote_of_day: string;

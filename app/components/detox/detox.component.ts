@@ -9,8 +9,7 @@ import {Detox} from '../../models/detox.model';
   styleUrls:["./components/detox/detox.css"]
 })
 export class DetoxComponent implements OnInit {
-    public welcome_msg: string = "Welcome to Quotox, you are not alone my friend!";
-    public quote_of_day: string = "A Lion doesn't concern himself with the opinion of sheep."
+    public drug_name: string
     public why: string;
     public last_time: any;
     public detox: Detox;
@@ -21,7 +20,6 @@ export class DetoxComponent implements OnInit {
 
     ngOnInit(){
       this.detox = new Detox();
-      // setTimeout(this.testfx(), 5000);
     }
 
     post_detox(){
