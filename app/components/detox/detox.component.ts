@@ -14,6 +14,8 @@ export class DetoxComponent implements OnInit {
     public last_time: any;
     public detox: Detox;
     public date:any = ['Week-Day', 'Month', 'Day', 'Year','Time','GMT',"Time Zone"]
+    public date_text:string = "add date"
+    public visible = "collapse"
     constructor(){
 
     }
@@ -32,6 +34,18 @@ export class DetoxComponent implements OnInit {
       last_time.forEach((date, index)=>{
         console.log(this.date[index],": ",date);
       });
+    }
+
+    onClick(){
+      if(this.visible == "collapse"){
+        this.date_text = "hide datepicker"
+        this.visible = "visible"
+      }
+
+      else {
+        this.date_text = "show datepicker"
+        this.visible = "collapse"
+      }
     }
 
 }

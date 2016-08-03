@@ -1,9 +1,16 @@
   <StackLayout>
+
      <Label text="What do you want to quit?" class="detox-label" textWrap="true"></Label>
      <TextField hint="Weed, Alcohol, Cocaine, Meth?" [(ngModel)]="drug_name"></TextField>
+
      <Label text="Why do you want to quit?" class="detox-label" textWrap="true"></Label>
      <TextField hint="Because..." [(ngModel)]="why"></TextField>
+
      <Label text="When was the last time you used?" class="detox-label" textWrap="true"></Label>
-     <DatePicker verticalAlignment="center" horizontalAlignment="center" [(ngModel)]="last_time"></DatePicker>
+     <TextField hint="Last time you used?"></TextField>
+     <DatePicker visibility="{{ visible }}" verticalAlignment="center" horizontalAlignment="center" [(ngModel)]="last_time"></DatePicker>
+     <Button class="detox-btn" text="{{date_text}}" (tap)="onClick()"></Button>
+
      <Button class="detox-btn" text="Start Detox" (tap)="post_detox()"></Button>
+
   </StackLayout>
