@@ -9,22 +9,24 @@ import {DetoxService} from '../../services/detox.service';
   selector:'detox-component',
   templateUrl:'./components/detox/detox.component.html',
   styleUrls:["./components/detox/detox.css"],
-  providers:[]
+  providers:[DetoxService]
 })
 export class DetoxComponent implements OnInit {
     public drug_name: string
-    public why: string;
-    public last_time: any;
-    public detox: Detox;
+    public why: string
+    public last_time: any
+    public detox: Detox
+    public detoxes:any;
     public date:any = ['Week-Day', 'Month', 'Day', 'Year','Time','GMT',"Time Zone"]
     public date_text:string = "add date"
     public visible = "collapse"
-    constructor(){
+    constructor(private detox_service: DetoxService){
 
     }
 
     ngOnInit(){
-      this.detox = new Detox();
+      this.detox = new Detox()
+      this.get_detoxes()
     }
 
     post_detox(){
@@ -32,11 +34,11 @@ export class DetoxComponent implements OnInit {
     }
 
     date_numbers(){
-      var last_time:any = this.last_time.toString().split(' ');
-      console.log('this.last_time: ', last_time);
+      var last_time:any = this.last_time.toString().split(' ')
+      console.log('this.last_time: ', last_time)
       last_time.forEach((date, index)=>{
-        console.log(this.date[index],": ",date);
-      });
+        console.log(this.date[index],": ",date)
+      })
     }
 
     onClick(){
@@ -51,4 +53,11 @@ export class DetoxComponent implements OnInit {
       }
     }
 
-}
+    get_detoxes():Promise<any> {
+      var detoxes = this.detox_service.get_detoxes();
+      return detoxes.then((detoxes) => {
+        this.detoxes = detoxes[0].id
+        console.log(this.detoxes)
+      });
+      }
+  }
