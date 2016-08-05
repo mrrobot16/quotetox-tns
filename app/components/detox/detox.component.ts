@@ -1,12 +1,15 @@
 // Angular 2 objects
 import {Component, OnInit} from "@angular/core";
+
 // Model
 import {Detox} from '../../models/detox.model';
-
+// Services
+import {DetoxService} from '../../services/detox.service';
 @Component({
   selector:'detox-component',
   templateUrl:'./components/detox/detox.component.html',
-  styleUrls:["./components/detox/detox.css"]
+  styleUrls:["./components/detox/detox.css"],
+  providers:[]
 })
 export class DetoxComponent implements OnInit {
     public drug_name: string
