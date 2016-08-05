@@ -47,14 +47,4 @@ export class HomeScreenComponent implements OnInit {
       this.router.navigate(["/detox"]);
     }
 
-    get_detoxes():Promise<any>{
-      var detoxes = this.detox_service.get_detoxes();
-      return detoxes.then(
-        (detoxes)=>{
-          this.detoxes = detoxes[0].id;
-          console.log(this.detoxes);
-        }
-      )
-    }
-
 }
