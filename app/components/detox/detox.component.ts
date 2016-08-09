@@ -14,50 +14,57 @@ import {DetoxService} from '../../services/detox.service';
 export class DetoxComponent implements OnInit {
     public drug_name: string
     public why: string
-    public last_time: any
+    public last_time = new Date();
     public detox: Detox
-    public detoxes:any;
+    public detoxes:any
     public date:any = ['Week-Day', 'Month', 'Day', 'Year','Time','GMT',"Time Zone"]
     public date_text:string = "add date"
     public visible = "collapse"
+    public month_to_numbers = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 }
+
     constructor(private detox_service: DetoxService){
 
     }
 
     ngOnInit(){
       this.detox = new Detox()
-      this.get_detoxes()
+      console.log("last_time");
+      console.log(this.last_time);
     }
 
-    post_detox(){
-
-    }
-
-    date_numbers(){
+    last_time_date(){
       var last_time:any = this.last_time.toString().split(' ')
-      console.log('this.last_time: ', last_time)
-      last_time.forEach((date, index)=>{
-        console.log(this.date[index],": ",date)
-      })
+      var last_time_mon:any = last_time[1].toLowerCase()
+      last_time_mon = this.month_to_numbers[last_time_mon];
+      this.last_time = new Date(last_time[3], last_time_mon, last_time[2])
+      // console.log(last_time[3],last_time[2],last_time_mon)
+      // console.log(this.last_time);
     }
 
-    onClick(){
+    toggle_date(){
+      this.last_time_date();
       if(this.visible == "collapse"){
-        this.date_text = "hide datepicker"
-        this.visible = "visible"
+        this.date_text = "save date"
+        this.visible = "visible";
       }
 
       else {
         this.date_text = "show datepicker"
-        this.visible = "collapse"
+        this.visible = "collapse";
       }
     }
 
     get_detoxes():Promise<any> {
       var detoxes = this.detox_service.get_detoxes();
       return detoxes.then((detoxes) => {
-        this.detoxes = detoxes[0].id
-        console.log(this.detoxes)
+        this.detoxes = detoxes[detoxes.length-1].last_time;
+        console.log(this.detoxes);
       });
       }
+
+    post_detox(){
+      this.last_time_date();
+      console.log("this.last_time");
+      console.log(this.last_time);
+    }
   }

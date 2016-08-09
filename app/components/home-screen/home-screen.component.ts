@@ -20,7 +20,7 @@ import {DetoxService} from '../../services/detox.service';
      <Label text="Quote of the day" class="quote_of_day" textWrap="true"></Label>
      <Label [text]="quote_of_day" class="quote" textWrap="true"></Label>
      <Label text="{{days_clean}} days free of alcohol" class="days_clean" textWrap="true"></Label>
-     <Button class="detox-btn" text="Get Detoxes" (tap)="get_detoxes()"></Button>
+     <!-- <Button class="detox-btn" text="Get Detoxes" (tap)="get_detoxes()"></Button> -->
   </StackLayout>
 
   `,
@@ -45,6 +45,10 @@ export class HomeScreenComponent implements OnInit {
 
     detox_screen(){
       this.router.navigate(["/detox"]);
+    }
+
+    get_detoxes(){
+      console.log("***");
     }
 
 }
