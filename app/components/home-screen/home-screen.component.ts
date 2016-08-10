@@ -35,13 +35,13 @@ export class HomeScreenComponent implements OnInit {
     public today:any = new Date();
     public days_clean:number;
     public detoxes:any;
+
     constructor(private router: Router, private detox_service:DetoxService){
 
     }
 
     ngOnInit(){
       this.quote_of_day = "A Lion doesn't concern himself with the opinion of a sheep.";
-      // this.days_clean = Math.floor(((this.today - this.last_time)/(864*Math.pow(10,5))));
       this.get_detoxes();
     }
 
@@ -61,8 +61,6 @@ export class HomeScreenComponent implements OnInit {
       var last_time = last_time.split("-");
       this.last_time = new Date(last_time[0],last_time[1]-1,last_time[2]);
       this.days_clean = Math.floor(((this.today - this.last_time)/(864*Math.pow(10,5))));
-      console.log(this.last_time);
-      console.log(this.days_clean);
     }
 
 }

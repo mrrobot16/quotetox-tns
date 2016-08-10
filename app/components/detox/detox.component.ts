@@ -28,17 +28,13 @@ export class DetoxComponent implements OnInit {
 
     ngOnInit(){
       this.detox = new Detox()
-      console.log("last_time");
-      console.log(this.last_time);
     }
 
     last_time_date(){
-      var last_time:any = this.last_time.toString().split(' ')
+      var last_time:any = this.detox.last_time.toString().split(' ')
       var last_time_mon:any = last_time[1].toLowerCase()
       last_time_mon = this.month_to_numbers[last_time_mon];
-      this.last_time = new Date(last_time[3], last_time_mon, last_time[2])
-      // console.log(last_time[3],last_time[2],last_time_mon)
-      // console.log(this.last_time);
+      this.detox.last_time = new Date(last_time[3], last_time_mon, last_time[2])
     }
 
     toggle_date(){
@@ -64,7 +60,6 @@ export class DetoxComponent implements OnInit {
 
     post_detox(){
       this.last_time_date();
-      console.log("this.last_time");
-      console.log(this.last_time);
+      this.detox_service.post_detox(this.detox);
     }
   }

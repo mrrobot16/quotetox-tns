@@ -19,7 +19,19 @@ export class DetoxService {
     })
   }
 
-  post_detox(){
-
+  post_detox(detox){
+    var object = {
+      detox: detox
+    }
+    return fetch("http://quotetox.herokuapp.com/detoxes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(object)
+      }).then(r => { return r.json(); }).then(function (r) {
+            console.log("r");
+            console.log(r);
+      }, function (e) {
+        console.log("Error occurred " + e);
+    });
   }
 }
