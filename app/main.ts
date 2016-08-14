@@ -7,8 +7,8 @@ import {DetoxComponent} from './components/detox/detox.component';
 import {HomeScreenComponent} from './components/home-screen/home-screen.component';
 
 export const AppRoutes: RouterConfig = [
-{ path: "detox", component: DetoxComponent },
-{ path:"", component: HomeScreenComponent}
+{ path: "", component: DetoxComponent },
+{ path:"home-screen", component: HomeScreenComponent}
 ]
 
 nativeScriptBootstrap(AppComponent, [[nsProvideRouter(AppRoutes,{})]], { startPageActionBarHidden: false });

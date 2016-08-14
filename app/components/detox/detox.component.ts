@@ -1,6 +1,6 @@
 // Angular 2 objects
 import {Component, OnInit} from "@angular/core";
-
+import {Router} from '@angular/router';
 // Model
 import {Detox} from '../../models/detox.model';
 // Services
@@ -22,12 +22,16 @@ export class DetoxComponent implements OnInit {
     public visible = "collapse"
     public month_to_numbers = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 }
 
-    constructor(private detox_service: DetoxService){
-
+    constructor(private detox_service: DetoxService, private router: Router){
+      
     }
 
     ngOnInit(){
       this.detox = new Detox()
+    }
+
+    test(){
+
     }
 
     last_time_date(){
@@ -54,12 +58,12 @@ export class DetoxComponent implements OnInit {
       var detoxes = this.detox_service.get_detoxes();
       return detoxes.then((detoxes) => {
         this.detoxes = detoxes[detoxes.length-1].last_time;
-        console.log(this.detoxes);
       });
       }
 
     post_detox(){
       this.last_time_date();
       this.detox_service.post_detox(this.detox);
+      this.router.navigate(["/home-screen"]);
     }
   }
